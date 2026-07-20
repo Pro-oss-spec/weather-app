@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>5-Day Forecast</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/forecast.css') }}">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+</head>
+<body>
+
+<nav>
+    <div class="logo">
+        <i class="fa-solid fa-cloud-sun"></i>
+        <h2>Weather</h2>
+    </div>
+
+    <ul>
+        <li><a href="{{ url_for('home') }}">Home</a></li>
+        <li><a href="{{ url_for('forecast') }}" class="active">Forecast</a></li>
+        <li><a href="{{ url_for('about') }}">About</a></li>
+        <li><a href="{{ url_for('contact') }}">Contact</a></li>
+    </ul>
+</nav>
+
+<header>
+    <h1>5-Day Weather Forecast</h1>
+    <p>Check the weather forecast for the upcoming days.</p>
+</header>
+
+<section class="forecast-container">
+
+    <div class="card">
+        <h3>Monday</h3>
+        <i class="fa-solid fa-sun"></i>
+        <p>Sunny</p>
+        <h2>31°C</h2>
+        <span>Humidity: 40%</span>
+    </div>
+
+    <div class="card">
+        <h3>Tuesday</h3>
+        <i class="fa-solid fa-cloud"></i>
+        <p>Cloudy</p>
+        <h2>28°C</h2>
+        <span>Humidity: 65%</span>
+    </div>
+
+    <div class="card">
+        <h3>Wednesday</h3>
+        <i class="fa-solid fa-cloud-rain"></i>
+        <p>Rain</p>
+        <h2>24°C</h2>
+        <span>Humidity: 85%</span>
+    </div>
+
+    <div class="card">
+        <h3>Thursday</h3>
+        <i class="fa-solid fa-cloud-bolt"></i>
+        <p>Storm</p>
+        <h2>26°C</h2>
+        <span>Humidity: 90%</span>
+    </div>
+
+    <div class="card">
+        <h3>Friday</h3>
+        <i class="fa-solid fa-cloud-sun"></i>
+        <p>Partly Cloudy</p>
+        <h2>30°C</h2>
+        <span>Humidity: 60%</span>
+    </div>
+
+</section>
+
+<footer>
+    <p>
+        <i class="fa-solid fa-cloud-sun"></i>
+        Weather App © 2026
+    </p>
+</footer>
+
+</body>
+</html>

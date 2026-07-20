@@ -1,0 +1,252 @@
+<!doctype html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Weather App</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/responsive.css') }}">
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+</head>
+
+<body>
+
+<!--================ NAVBAR =================-->
+
+<nav>
+
+    <div class="logo">
+        <i class="fa-solid fa-cloud-sun"></i>
+        <h2>Weather</h2>
+    </div>
+
+    <ul class="nav-links">
+        <li><a href="{{ url_for('home') }}" class="active">Home</a></li>
+        <li><a href="{{ url_for('forecast') }}">Forecast</a></li>
+        <li><a href="{{ url_for('about') }}">About</a></li>
+        <li><a href="{{ url_for('contact') }}">Contact</a></li>
+    </ul>
+
+    <div class="nav-right">
+
+        <button id="themeBtn">
+            <i class="fa-solid fa-sun"></i>
+        </button>
+
+        <div class="menu-btn">
+            <i class="fa-solid fa-bars"></i>
+        </div>
+
+    </div>
+
+</nav>
+
+<!--================ HERO =================-->
+
+<section class="hero">
+
+    <h1>Weather Forecast</h1>
+
+    <p>Know today's weather before leaving home.</p>
+
+    <form method="POST" class="search-box">
+
+        <i class="fa-solid fa-location-dot"></i>
+
+        <input
+                type="text"
+                name="city"
+                placeholder="Search any city..."
+                value="{{ weather.city if weather else '' }}"
+                required>
+
+        <button type="submit">
+            <i class="fa-solid fa-magnifying-glass"></i>
+        </button>
+
+    </form>
+
+    {% if error %}
+
+    <div style="
+        width:400px;
+        max-width:90%;
+        margin:20px auto;
+        padding:15px;
+        background:#d9534f;
+        border-radius:12px;
+        text-align:center;
+        color:white;">
+
+        {{ error }}
+
+    </div>
+
+    {% endif %}
+
+</section>
+
+<!--================ WEATHER =================-->
+
+{% if weather %}
+
+<section class="weather-card">
+
+    <div class="weather-left">
+
+        <img
+                src="https://openweathermap.org/img/wn/{{ weather.icon }}@4x.png"
+                alt="{{ weather.description }}">
+
+    </div>
+
+    <div class="weather-center">
+
+        <h2>
+
+            <i class="fa-solid fa-location-dot"></i>
+
+            {{ weather.city }}, {{ weather.country }}
+
+        </h2>
+
+        <p>{{ weather.date }}</p>
+
+        <h1>{{ weather.temperature }}°C</h1>
+
+        <h3>{{ weather.description }}</h3>
+
+    </div>
+
+    <div class="weather-right">
+
+        <div class="info">
+
+            <i class="fa-solid fa-temperature-half"></i>
+
+            <div>
+
+                <p>Feels Like</p>
+
+                <h4>{{ weather.feels_like }}°C</h4>
+
+            </div>
+
+        </div>
+
+        <div class="info">
+
+            <i class="fa-solid fa-droplet"></i>
+
+            <div>
+
+                <p>Humidity</p>
+
+                <h4>{{ weather.humidity }}%</h4>
+
+            </div>
+
+        </div>
+
+        <div class="info">
+
+            <i class="fa-solid fa-wind"></i>
+
+            <div>
+
+                <p>Wind Speed</p>
+
+                <h4>{{ weather.wind }} m/s</h4>
+
+            </div>
+
+        </div>
+
+        <div class="info">
+
+            <i class="fa-solid fa-gauge-high"></i>
+
+            <div>
+
+                <p>Pressure</p>
+
+                <h4>{{ weather.pressure }} hPa</h4>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+{% endif %}
+
+<!--================ FORECAST =================-->
+
+<section class="forecast">
+
+    <h2>5-Day Forecast</h2>
+
+    {% if forecast %}
+
+    <div class="forecast-container">
+
+        {% for day in forecast %}
+
+        <div class="forecast-card">
+
+            <h3>{{ day.day }}</h3>
+
+            <img
+                    src="https://openweathermap.org/img/wn/{{ day.icon }}@2x.png"
+                    alt="{{ day.description }}">
+
+            <p>{{ day.description }}</p>
+
+            <h4>{{ day.temp }}°C</h4>
+
+        </div>
+
+        {% endfor %}
+
+    </div>
+
+    {% else %}
+
+    <p style="text-align:center;">No forecast available.</p>
+
+    {% endif %}
+
+</section>
+
+<!--================ FOOTER =================-->
+
+<footer>
+
+    <p>
+
+        <i class="fa-solid fa-cloud-sun"></i>
+
+        Weather App © 2026
+
+    </p>
+
+</footer>
+
+<script src="{{ url_for('static', filename='js/script.js') }}"></script>
+
+</body>
+
+</html>

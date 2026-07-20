@@ -1,0 +1,199 @@
+/*==================================
+        RESPONSIVE DESIGN
+==================================*/
+
+/*========== Laptop ==========*/
+
+@media (max-width: 1200px) {
+  .weather-card {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .weather-left {
+    margin-bottom: 20px;
+  }
+
+  .weather-right {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/*========== Tablet ==========*/
+
+@media (max-width: 992px) {
+  nav {
+    padding: 0 5%;
+  }
+
+  .hero h1 {
+    font-size: 50px;
+  }
+
+  .forecast-container {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/*========== Mobile ==========*/
+
+@media (max-width: 768px) {
+  nav {
+    height: 75px;
+
+    padding: 0 20px;
+  }
+
+  .menu-btn {
+    display: block;
+
+    font-size: 30px;
+
+    cursor: pointer;
+  }
+
+  .nav-links {
+    position: fixed;
+
+    top: 75px;
+
+    right: -100%;
+
+    width: 280px;
+
+    height: 100vh;
+
+    background: rgba(7, 20, 45, 0.95);
+
+    backdrop-filter: blur(25px);
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: flex-start;
+
+    align-items: center;
+
+    gap: 35px;
+
+    padding-top: 60px;
+
+    transition: 0.5s;
+  }
+
+  .nav-links.active {
+    right: 0;
+  }
+
+  .hero {
+    padding-top: 120px;
+  }
+
+  .hero h1 {
+    font-size: 38px;
+  }
+
+  .hero p {
+    font-size: 16px;
+  }
+
+  .search-box {
+    width: 95%;
+  }
+
+  .weather-card {
+    width: 95%;
+
+    padding: 25px;
+  }
+
+  .weather-left i {
+    font-size: 130px;
+  }
+
+  .weather-center h1 {
+    font-size: 70px;
+  }
+
+  .weather-center h2 {
+    justify-content: center;
+
+    font-size: 30px;
+  }
+
+  .weather-center h3 {
+    font-size: 24px;
+  }
+
+  .weather-right {
+    grid-template-columns: 1fr;
+  }
+
+  .forecast {
+    width: 95%;
+  }
+
+  .forecast-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/*========== Small Phones ==========*/
+
+@media (max-width: 480px) {
+  .hero h1 {
+    font-size: 30px;
+  }
+
+  .hero p {
+    font-size: 15px;
+  }
+
+  .search-box {
+    flex-direction: column;
+
+    border-radius: 20px;
+  }
+
+  .search-box i{
+    display: none;
+  }
+
+  .search-box button i {
+    display: block;
+  }
+
+  .search-box input {
+    width: 100%;
+
+    height: 100px;
+
+    text-align: center;
+    padding: 10px;
+  }
+
+  .search-box button {
+    width: 100%;
+
+    height: 60px;
+
+    border-radius: 0 0 20px 20px;
+  }
+
+  .weather-left i {
+    font-size: 100px;
+  }
+
+  .weather-center h1 {
+    font-size: 55px;
+  }
+
+  .forecast-container {
+    grid-template-columns: 1fr;
+  }
+
+  footer {
+    font-size: 14px;
+  }
+}

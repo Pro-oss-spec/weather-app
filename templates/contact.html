@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - Weather App</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/contact.css') }}">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+</head>
+
+<body>
+
+<nav>
+
+    <div class="logo">
+        <i class="fa-solid fa-cloud-sun"></i>
+        <h2>Weather</h2>
+    </div>
+
+    <ul>
+        <li><a href="{{ url_for('home') }}">Home</a></li>
+        <li><a href="{{ url_for('forecast') }}">Forecast</a></li>
+        <li><a href="{{ url_for('about') }}">About</a></li>
+        <li><a href="{{ url_for('contact') }}" class="active">Contact</a></li>
+    </ul>
+
+</nav>
+
+<header>
+
+    <h1>Contact Us</h1>
+
+    <p>Have questions or suggestions? We'd love to hear from you.</p>
+
+</header>
+
+<section class="contact-container">
+
+    <div class="contact-info">
+
+        <h2>Get In Touch</h2>
+
+        <div class="info">
+            <i class="fa-solid fa-location-dot"></i>
+            <span>University of Uyo, Akwa Ibom, Nigeria</span>
+        </div>
+
+        <div class="info">
+            <i class="fa-solid fa-envelope"></i>
+            <span>weatherapp@example.com</span>
+        </div>
+
+        <div class="info">
+            <i class="fa-solid fa-phone"></i>
+            <span>+234 800 000 0000</span>
+        </div>
+
+        <div class="socials">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-x-twitter"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-github"></i></a>
+        </div>
+
+    </div>
+
+    <div class="contact-form">
+
+        <form>
+
+            <input type="text" placeholder="Full Name" required>
+
+            <input type="email" placeholder="Email Address" required>
+
+            <input type="text" placeholder="Subject">
+
+            <textarea rows="6" placeholder="Your Message" required></textarea>
+
+            <button type="submit">
+                <i class="fa-solid fa-paper-plane"></i>
+                Send Message
+            </button>
+
+        </form>
+
+    </div>
+
+</section>
+
+<footer>
+
+    <p>
+        <i class="fa-solid fa-cloud-sun"></i>
+        Weather App © 2026
+    </p>
+
+</footer>
+
+</body>
+</html>
